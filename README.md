@@ -1,1 +1,2 @@
-# samhu1.github.io
+# Education
+## University of Michigan
