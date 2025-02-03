@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Software Engineer</title>
+    <title>Samuel Hu - Software Engineer</title>
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +23,6 @@
             color: var(--text-color);
         }
 
-        /* Utility Classes */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -35,13 +33,13 @@
             padding: 5rem 0;
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             background: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
         }
 
         .nav-links {
@@ -62,7 +60,6 @@
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -75,14 +72,16 @@
             margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: #636e72;
-            max-width: 600px;
-            margin: 0 auto;
+        .contact-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
         }
 
-        /* Section Headings */
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
         .section-heading {
             text-align: center;
             margin-bottom: 3rem;
@@ -93,60 +92,70 @@
             margin-bottom: 1rem;
         }
 
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* Projects Section */
-        .projects-container {
+        .education-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .project-card {
-            border: 1px solid #eee;
+        .education-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 5px;
+        }
+
+        .coursework ul {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skills-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .skills-category {
+            background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 5px;
         }
 
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        .skills-list {
+            columns: 2;
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .experience-card {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 1.5rem;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease;
         }
 
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .experience-card:hover {
+            transform: translateX(10px);
         }
 
-        button {
-            background: var(--secondary-color);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .experience-date {
+            color: var(--secondary-color);
+            font-weight: 500;
         }
 
-        /* Footer */
+        .experience-details li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-details li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -159,17 +168,59 @@
         <div class="container">
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero section">
+    <section id="about" class="hero section">
         <div class="container">
-            <h1>Hi, I'm [Your Name]</h1>
+            <h1>Samuel Hu</h1>
+            <p class="contact-info">
+                929-278-1006 | samuelhu@umich.edu<br>
+                <a href="https://linkedin.com/in/samuel-hu/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/samhu1" target="_blank">GitHub</a>
+            </p>
             <p>New Graduate Software Engineer passionate about building impactful solutions</p>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Education</h2>
+            </div>
+            <div class="education-container">
+                <div class="education-card">
+                    <h3>University of Michigan</h3>
+                    <p>B.S. Computer Science (University Honors)</p>
+                    <p>Ann Arbor, MI<br>
+                    Aug. 2022 – Dec 2024</p>
+                    <div class="coursework">
+                        <strong>Relevant Coursework:</strong>
+                        <ul>
+                            <li>Linear Algebra</li>
+                            <li>Intro to Artificial Intelligence</li>
+                            <li>Computer Vision</li>
+                            <li>Software Engineering</li>
+                            <li>Web Systems</li>
+                            <li>Data Structures and Algorithms</li>
+                            <li>App Development for Entrepreneurs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <h3>Stony Brook University</h3>
+                    <p>B.S. Computer Science</p>
+                    <p>Stony Brook, NY<br>
+                    Aug. 2021 – May 2022<br>
+                    GPA: 3.91/4.0 (Dean’s List)</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -179,29 +230,92 @@
                 <h2>Technical Skills</h2>
             </div>
             <div class="skills-container">
-                <!-- Add your skills -->
-                <div class="skill-card">
-                    <h3>Frontend</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <ul class="skills-list">
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>SQL</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>HTML/CSS</li>
+                        <li>Swift</li>
+                    </ul>
                 </div>
-                <!-- Repeat for other skill categories -->
+
+                <div class="skills-category">
+                    <h3>Frameworks/Libraries</h3>
+                    <ul class="skills-list">
+                        <li>React</li>
+                        <li>Flask</li>
+                        <li>NodeJS</li>
+                        <li>Angular</li>
+                        <li>Spring Boot</li>
+                        <li>pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>PyTorch</li>
+                        <li>Django</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Developer Tools</h3>
+                    <ul class="skills-list">
+                        <li>Git</li>
+                        <li>Google Cloud Platform</li>
+                        <li>VS Code</li>
+                        <li>IntelliJ</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="experience" class="section">
         <div class="container">
             <div class="section-heading">
-                <h2>Projects</h2>
+                <h2>Experience</h2>
             </div>
-            <div class="projects-container">
-                <!-- Add your projects -->
-                <div class="project-card">
-                    <h3>Project Title</h3>
-                    <p>Project description with technologies used</p>
-                    <a href="#">Live Demo</a> | <a href="#">GitHub</a>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Software Engineer Intern</h3>
+                    <div class="experience-date">May 2024 – Aug 2024</div>
+                    <div class="experience-location">Ford Motor Company - Dearborn, MI</div>
                 </div>
-                <!-- Repeat for other projects -->
+                <ul class="experience-details">
+                    <li>Developed Customer Information Management Tool using Java, TypeScript, Angular, and Spring Boot, streamlining update process from days to seconds</li>
+                    <li>Enhanced Ford Credit FAQ search function with Vertex AI text-embedding-gecko, improving user satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Software Engineer Intern</h3>
+                    <div class="experience-date">May 2023 – Aug 2023</div>
+                    <div class="experience-location">Ford Motor Company - Dearborn, MI</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Engineered customer-service chatbot using Google Cloud Platform's Vertex AI, improving query resolution efficiency</li>
+                    <li>Launched Contentsquare training pathway on Degreed, achieving 17 followers and centralizing analytics dashboards</li>
+                    <li>Refactored test code through pair programming, increasing readability by 20%</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Student Machine Learning Engineer (Prof. Sindhu Kutty)</h3>
+                    <div class="experience-date">Jan. 2023 – May 2024</div>
+                    <div class="experience-location">ProQuest - Ann Arbor, MI</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Built large feature dataset (6M keywords × 42 features) through preprocessing of PQDT documents using Python/pandas</li>
+                    <li>Engineered lexical features including lexile scores calculated on dissertation abstracts</li>
+                    <li>Implemented multilayer perceptron model achieving 70% precision@10 for forecasting top dissertation topics</li>
+                    <li>Directed 7-member team through weekly meetings and progress presentations</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -209,17 +323,17 @@
     <section id="contact" class="section">
         <div class="container">
             <div class="section-heading">
-                <h2>Get In Touch</h2>
+                <h2>Contact</h2>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
-                    <input type="text" placeholder="Name">
+                    <input type="text" name="name" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Email">
+                    <input type="email" name="_replyto" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <textarea rows="5" placeholder="Message"></textarea>
+                    <textarea rows="5" name="message" placeholder="Message" required></textarea>
                 </div>
                 <button type="submit">Send Message</button>
             </form>
@@ -228,12 +342,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 [Your Name]. All rights reserved.</p>
+            <p>&copy; 2024 Samuel Hu. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
