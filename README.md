@@ -1,2 +1,0 @@
-# Education
-## University of Michigan
