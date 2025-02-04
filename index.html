@@ -114,6 +114,21 @@
             animation-fill-mode: backwards;
         }
 
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .headshot {
+            width: 150px;  /* Adjust size as needed */
+            height: 150px;
+            border-radius: 50%; /* Circular Image */
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+
         .contact-info {
             display: flex;
             gap: 2rem;
@@ -329,15 +344,20 @@
 
     <section id="about" class="hero section">
         <div class="container">
-            <h1>Samuel Hu</h1>
-            <p class="contact-info">
-                929-278-1006 | samuelhu@umich.edu<br>
-                <a href="https://linkedin.com/in/samuel-hu/" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/samhu1" target="_blank">GitHub</a>
-            </p>
-            <p>New Graduate Software Engineer passionate about building impactful solutions</p>
+            <div class="hero-content">
+                <img src="/assets/pfp.png" alt="Samuel Hu Headshot" class="headshot">
+                <div>
+                    <h1>Samuel Hu</h1>
+                    <p class="contact-info">
+                        929-278-1006 samuelhu@umich.edu<br>
+                        <a href="https://linkedin.com/in/samuel-hu/" target="_blank">LinkedIn</a> | 
+                        <a href="https://github.com/samhu1" target="_blank">GitHub</a>
+                    </p>
+                    <p>New Graduate Software Engineer passionate about building impactful solutions</p>
+                </div>
+            </div>
         </div>
-    </section>
+    </section>    
 
     <section id="education" class="section">
         <div class="container">
