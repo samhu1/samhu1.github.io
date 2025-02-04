@@ -4,92 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel Hu - Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #64ffda;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        :root {
-            --primary-color: #2d3436;
-            --secondary-color: #0984e3;
-            --text-color: #2d3436;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
+            background-color: var(--primary);
+            color: var(--slate);
             line-height: 1.6;
-            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--slate);
+            border-radius: 4px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-        }
-
-        .section {
-            padding: 5rem 0;
         }
 
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: 1rem 0;
         }
 
         .nav-links {
             display: flex;
             justify-content: flex-end;
+            gap: 2rem;
             list-style: none;
-            padding: 1rem 0;
         }
 
         .nav-links a {
+            color: var(--white);
             text-decoration: none;
-            color: var(--text-color);
-            padding: 0 1.5rem;
+            font-size: 0.9rem;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary-color);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            text-align: center;
+            padding: 120px 0 80px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: backwards;
         }
 
         .contact-info {
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: backwards;
         }
 
         .contact-info a {
-            color: var(--secondary-color);
+            color: var(--secondary);
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--white);
+        }
+
+        .section {
+            padding: 6rem 0;
         }
 
         .section-heading {
-            text-align: center;
-            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
         }
 
         .section-heading h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            color: var(--white);
+            font-size: 2rem;
+            white-space: nowrap;
+        }
+
+        .section-heading::after {
+            content: '';
+            width: 300px;
+            height: 1px;
+            background-color: var(--slate);
+            opacity: 0.2;
         }
 
         .education-container {
@@ -99,39 +164,57 @@
         }
 
         .education-card {
-            background: #f8f9fa;
+            background: rgba(100, 255, 218, 0.05);
             padding: 2rem;
-            border-radius: 5px;
+            border-radius: 4px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: transform 0.3s;
         }
 
-        .coursework ul {
-            padding-left: 1.5rem;
-            margin-top: 1rem;
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
         }
 
         .skills-container {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .skills-category {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 5px;
+        .skill-category {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 2rem;
+            border-radius: 4px;
         }
 
-        .skills-list {
-            columns: 2;
-            list-style: none;
-            padding: 0;
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-top: 1rem;
         }
 
+        .skill-item {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
         .experience-card {
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 1.5rem;
-            margin-bottom: 3rem;
-            transition: transform 0.3s ease;
+            position: relative;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 4px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: transform 0.3s;
         }
 
         .experience-card:hover {
@@ -139,31 +222,99 @@
         }
 
         .experience-date {
-            color: var(--secondary-color);
-            font-weight: 500;
+            color: var(--secondary);
+            font-size: 0.9rem;
         }
 
         .experience-details li {
             position: relative;
             padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .experience-details li::before {
-            content: "▹";
+            content: '▹';
             position: absolute;
             left: 0;
-            color: var(--secondary-color);
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 4px;
+            color: var(--white);
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+        }
+
+        button {
+            background: transparent;
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            border: 1px solid var(--secondary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: rgba(100, 255, 218, 0.1);
         }
 
         footer {
             text-align: center;
             padding: 2rem 0;
-            background: #f8f9fa;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .section-heading::after {
+                width: 100px;
+            }
         }
     </style>
 </head>
-<body>
+<<body>
     <nav class="navbar">
         <div class="container">
             <ul class="nav-links">
@@ -230,44 +381,44 @@
                 <h2>Technical Skills</h2>
             </div>
             <div class="skills-container">
-                <div class="skills-category">
+                <div class="skill-category">
                     <h3>Languages</h3>
-                    <ul class="skills-list">
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>C++</li>
-                        <li>SQL</li>
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>HTML/CSS</li>
-                        <li>Swift</li>
-                    </ul>
+                    <div class="skill-list">
+                        <div class="skill-item">Java</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">HTML/CSS</div>
+                        <div class="skill-item">Swift</div>
+                    </div>
                 </div>
 
-                <div class="skills-category">
+                <div class="skill-category">
                     <h3>Frameworks/Libraries</h3>
-                    <ul class="skills-list">
-                        <li>React</li>
-                        <li>Flask</li>
-                        <li>NodeJS</li>
-                        <li>Angular</li>
-                        <li>Spring Boot</li>
-                        <li>pandas</li>
-                        <li>NumPy</li>
-                        <li>Matplotlib</li>
-                        <li>PyTorch</li>
-                        <li>Django</li>
-                    </ul>
+                    <div class="skill-list">
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Flask</div>
+                        <div class="skill-item">NodeJS</div>
+                        <div class="skill-item">Angular</div>
+                        <div class="skill-item">Spring Boot</div>
+                        <div class="skill-item">pandas</div>
+                        <div class="skill-item">NumPy</div>
+                        <div class="skill-item">Matplotlib</div>
+                        <div class="skill-item">PyTorch</div>
+                        <div class="skill-item">Django</div>
+                    </div>
                 </div>
 
-                <div class="skills-category">
+                <div class="skill-category">
                     <h3>Developer Tools</h3>
-                    <ul class="skills-list">
-                        <li>Git</li>
-                        <li>Google Cloud Platform</li>
-                        <li>VS Code</li>
-                        <li>IntelliJ</li>
-                    </ul>
+                    <div class="skill-list">
+                        <div class="skill-item">Git</div>
+                        <div class="skill-item">Google Cloud Platform</div>
+                        <div class="skill-item">VS Code</div>
+                        <div class="skill-item">IntelliJ</div>
+                    </div>
                 </div>
             </div>
         </div>
